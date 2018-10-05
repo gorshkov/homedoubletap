@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding="utf-8" standalone="no"?>
+<manifest xmlns:android='http://schemas.android.com/apk/res/android' package='com.gmail.evgenygorshkov.homedoubletap'>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <application android:label="@string/app_name">
+        <activity android:name="com.gmail.evgenygorshkov.homedoubletap.MainActivity" android:theme="@style/noTitleBarAndAnimation" android:excludeFromRecents="true" android:screenOrientation="portrait">
+             <intent-filter>
+                <category android:name='android.intent.category.LAUNCHER'/>
+                <action android:name='android.intent.action.MAIN'/>
+             </intent-filter>
+        </activity>
+        <receiver android:enabled="true" android:name="com.gmail.evgenygorshkov.homedoubletap.BroadcastReceiverService">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:name="com.gmail.evgenygorshkov.homedoubletap.HomeButtonService"></service> 
+    </application>
+</manifest>
